@@ -1,0 +1,157 @@
+.road {
+    padding: 120px 0px;
+    background: url('../img/road-bg.png') no-repeat center;
+    background-size: cover;
+    position: relative;
+
+    @include mobile {
+        padding: 60px 0px 80px;
+    }
+
+    @include bg-blur();
+
+    .container {
+        position: relative;
+    }
+
+    h2 {
+        color: #fff;
+        text-align: center;
+    }
+
+    .figure {
+        margin: 30px auto;
+    }
+
+    .nav-buttons {
+        margin: 0px auto;
+    }
+
+    .nav-contents {
+        padding: 40px 0px 0px;
+    }
+
+    .swiper-wrapper {
+        align-items: stretch;
+    }
+
+    .swiper-slide {
+        height: auto;
+    }
+
+    @include mobile {
+        .swiper {
+            overflow: visible;
+        }
+        
+        .swiper-slide {
+            opacity: 0;
+            transition: opacity .5s linear;
+
+            &-active,
+            &-next,
+            &-prev {
+                opacity: 1;
+            }
+        }
+    }
+
+    &-item {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+        gap: 30px;
+
+        @include mobile {
+            padding: 20px 16px 24px;
+            gap: 20px;
+        }
+    
+        h3 {
+            font-size: 26px;
+
+            @include mobile {
+                font-size: 24px;
+            }
+        }
+
+        &-places {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            gap: 10px;
+            padding: 0px 0px 0px 34px;
+            position: relative;
+            
+            &::before {
+                content: '';
+                height: 22px;
+                width: 4px;
+                border-left: 4px dotted var(--road-card-lines);
+                position: absolute;
+                top: 50%;
+                left: 12px;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        &-place {
+            font-size: 18px;
+            font-weight: 700;
+            position: relative;
+            &::before {
+                left: -34px;
+                content: '';
+                position: absolute;
+                width: 24px;
+                height: 24px;
+                display: inline-block;
+                mask: url('../img/map.svg') no-repeat center;
+                mask-size: contain;
+                background: var(--road-card-icon);
+            }
+
+            @include mobile {
+                font-size: 16px;
+            }
+        }
+
+        &-time {
+            font-size: 16px;
+            color: rgba(27, 27, 27, 0.40);
+        }
+
+        &-price {
+            width: 100%;
+            padding: 18px 0px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 18px;
+            border-top: 1px solid #E0E0E0;
+            border-bottom: 1px solid #E0E0E0;
+            margin: auto 0px 0px;
+
+            .title {
+                font-weight: 700;
+            }
+
+            @include mobile {
+                font-size: 16px;
+            }
+        }
+
+        .button {
+            width: 100%;
+            max-width: 100%;
+            white-space: nowrap;
+
+            &::before, &::after {
+                display: none;
+            }
+        }
+    }
+}

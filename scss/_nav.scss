@@ -1,0 +1,116 @@
+.nav {
+    &-buttons {
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        gap: 50px;
+        background: #fff;
+        border-radius: 100px;
+        border: 1px solid rgba(0, 0, 0, 0.20);
+        max-width: max-content;
+        overflow: hidden;
+        padding: 0px 20px;
+        position: relative;
+
+        @include mobile {
+            max-width: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            padding: 0;
+            border-radius: 30px;
+            gap: 0;
+
+            &.active {
+                .nav-button {
+                    display: block;
+
+                    &.active {
+                        &::after {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+        }
+
+        &-active {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            border-radius: 100px;
+            background: var(--main);
+            transition: left .5s linear, width .5s linear;
+
+            @include mobile {
+                display: none;
+            }
+        }
+    }
+
+    &-button {
+        cursor: pointer;
+        @include font(700);
+        padding: 20px;
+        font-size: 22px;
+        background: transparent;
+        border: none;
+        position: relative;
+        z-index: 2;
+        
+        @media (min-width: 769px) {
+            transition: color .3s .5s linear;
+        }
+
+        @media (max-width: 1400px) {
+            font-size: 18px;
+            white-space: nowrap;
+        }
+
+        @include mobile {
+            display: none;
+            font-size: 16px;
+        }
+
+        &.active {
+            color: #fff;
+
+            @include mobile {
+                background: var(--main);
+                width: 100%;
+                order: -1;
+                display: flex !important;
+                align-items: center;
+                justify-content: space-between;
+                border-radius: 30px;
+
+                &::after {
+                    content: '';
+                    width: 24px;
+                    height: 24px;
+                    background: url('../img/nav-arrow.svg') no-repeat center;
+                    background-size: contain;
+                }
+            
+            }
+        }
+    }
+
+    &-content {
+        opacity: 0;
+        transform: translate(0, 50px);
+        display: none;
+        transition: opacity .5s linear, transform .5s linear;
+        visibility: hidden;
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            display: block;
+            transform: translate(0, 0px);
+        }
+    }
+}

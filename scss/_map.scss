@@ -1,0 +1,67 @@
+.map {
+    padding: 140px 0px 100px;
+    position: relative;
+
+    @include mobile {
+        padding: 60px 0px 30px;
+    }
+    
+    &::before {
+        content: '';
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 50%;
+        background: var(--main);
+        position: absolute;
+        border-radius: 0px 0px 30px 0px;
+        z-index: -1;
+
+        @include mobile {
+            right: 0;
+            border-radius: 0px 0px 30px 30px;
+            bottom: 120px;
+        }
+    }
+
+    &-wrapper {
+        display: grid;
+        grid-template-columns: 30% 1fr;
+        grid-gap: 60px;
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            grid-gap: 36px;
+        }
+    }
+
+    &-content {
+        color: #fff;
+        text-align: center;
+
+        h2 {
+            margin: 30px 0px 20px;
+
+            @include mobile {
+                margin: 10px 0px 20px;
+            }
+        }
+
+        p {
+            opacity: 0.8;
+        }
+
+        .logo-img {
+            margin: 0px auto; 
+        }
+    }
+
+    iframe {
+        border-radius: 40px;
+        @include imgfit(100%, 735px);
+
+        @include mobile {
+            height: 500px;
+        }
+    }
+}

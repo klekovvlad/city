@@ -1,0 +1,66 @@
+.figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 92px;
+    position: relative;
+   
+    &-romb {
+        @include figure(11px, var(--figure-color)) {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+        };
+        position: relative;
+    }
+
+    &-lines {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            height: 1px;
+            border-radius: 2px;
+            width: 27px;
+            background: var(--figure-line);
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+
+        &::before {
+            left: 4px;
+        }
+
+        &::after {
+            right: 4px;
+        }
+    }
+
+    &::before,
+    &::after {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border: 1px solid var(--figure-line);
+        display: inline-block;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+
+    &::before {
+        left: 0;
+    }
+
+    &::after {
+        right: 0;
+    }
+}

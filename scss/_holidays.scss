@@ -1,0 +1,87 @@
+.holidays {
+    padding: 110px 0px 60px;
+
+    @include mobile {
+        padding: 60px 0px 30px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    &-wrapper {
+        padding: 60px 0px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 40px;
+
+        @include mobile {
+            padding: 42px 0px 0px;
+            grid-template-columns: 1fr;
+            grid-gap: 20px;
+        }
+    }
+
+    &-item {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+
+        @include mobile {
+            border-radius: 16px;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.60) 100%);
+        }
+
+        img {
+            @include imgfit(100%, 420px);
+
+            @include mobile {
+                height: 230px;
+            }
+        }
+
+        &-info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 2;
+
+            @include mobile {
+                left: 16px;
+            }
+        }
+
+        &-date {
+            max-width: max-content;
+            padding: 6px 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            margin-bottom: 12px;
+            background: var(--date-bg);
+
+            @include mobile {
+                font-size: 16px;
+            }
+        }
+
+        color: #fff;
+    }
+
+    .button {
+        margin: 0px auto;
+
+        @include mobile {
+            margin: 30px auto 0px;
+        }
+    }
+}

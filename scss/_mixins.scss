@@ -1,0 +1,46 @@
+@mixin font($weight) {
+    font-family: Manrope, sans-serif;
+    font-weight: $weight;
+}
+
+@mixin title() {
+    font-family: Lora, serif;
+    font-weight: 700;
+}
+
+@mixin figure($size, $color) {
+    content: '';
+    width: $size;
+    height: $size;
+    display: inline-block;
+    mask: url('../img/star-icon.svg') no-repeat center;
+    mask-size: contain;
+    background: $color;
+    @content;
+}
+
+@mixin imgfit($width, $height) {
+    object-fit: cover;
+    object-position: center;
+    width: $width;
+    height: $height;
+}
+
+@mixin bg-blur() {
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--bg-gradient);
+        backdrop-filter: blur(2px);
+    }
+}
+
+@mixin mobile() {
+    @media (max-width: 768px) {
+        @content;
+    }
+}

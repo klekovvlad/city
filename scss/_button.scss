@@ -1,0 +1,68 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: none;
+    cursor: pointer;
+    @include font(600);
+    padding: 25px 30px;
+    background: var(--main);
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 14px;
+    max-width: max-content;
+
+    &:before,
+    &:after {
+        @include figure(14px, var(--button-figure))
+    }
+
+    @include mobile {
+        font-size: 16px;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    &.mobile-show {
+        display: none;
+
+        @include mobile {
+            display: flex !important;
+        }
+    }
+}
+
+.slider-prev,
+.slider-next {
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--main) url('../img/arrow.svg') no-repeat center;
+    background-size: 16px 16px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 2;
+
+    @include mobile {
+        display: none;
+    }
+}
+
+.slider-prev {
+    left: -70px;
+}
+
+.slider-next {
+    right: -70px;
+    transform: translate(0, -50%) rotate(180deg);
+}
+
+.swiper-button-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}

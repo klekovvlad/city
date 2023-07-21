@@ -1,0 +1,25 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    padding: 60px 0px 0px;
+
+    .swiper-pagination-bullet {
+        margin: 0 !important;
+        width: 10px;
+        height: 10px;
+        opacity: .5;
+        background: #fff;
+
+        &-active {
+            background: var(--main);
+            opacity: 1;
+        }
+    }
+
+    @include mobile {
+        display: none;
+    }
+}

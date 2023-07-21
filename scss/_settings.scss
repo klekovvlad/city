@@ -1,0 +1,22 @@
+body {
+    @include font(500);
+    line-height: 1.45;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1600px;
+    padding: 0px 35px;
+    margin: 0px auto;
+
+    @include mobile {
+        padding: 0px 16px;
+    }
+}
+
+span.bold {
+    font-weight: 700;
+}
