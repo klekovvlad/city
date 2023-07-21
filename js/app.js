@@ -257,7 +257,7 @@ if(window.innerWidth <= 768) {
     nav.append(mobNav)
     links.forEach(link => {
         let copy = link.innerHTML;
-        mobNav.insertAdjacentHTML('afterBegin', copy)
+        mobNav.insertAdjacentHTML('beforeend', copy)
         link.parentNode.removeChild(link)
     })
 
