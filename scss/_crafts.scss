@@ -43,7 +43,7 @@
         grid-template-columns: 58% 1fr;
         grid-gap: 40px;
 
-        @include mobile {
+        @include tablet {
             grid-template-columns: 1fr;
             grid-gap: 20px;
         }

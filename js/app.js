@@ -1,15 +1,16 @@
 //Header
 
-const header = document.querySelector('.header-nav');
-const headerSection = document.querySelector('.header');
+let header = document.querySelector('.header-nav');
+
+if(window.innerWidth <= 820) {
+    header = document.querySelector('.header-nav-mobile')
+}
 
 const HeaderScroll = (scroll) => {
     if(scroll > window.innerHeight * 0.8) {
         header.classList.add('header-nav__fixed');
-        headerSection.style.paddingTop = `${header.offsetHeight}px`
     }else {
         header.classList.remove('header-nav__fixed')
-        headerSection.style.paddingTop = `0px`
     }
 }
 
@@ -57,7 +58,11 @@ if(placesSlider) {
                 spaceBetween: 20,
                 slidesPerGroup: 1,
             },
-            769: {
+            468: {
+                slidesPerView: 2.1,
+                slidesPerGroup: 1
+            },
+            1100: {
                 slidesPerView: 3,
                 spaceBetween: 30,
                 slidesPerGroup: 3,
@@ -108,7 +113,10 @@ if(navSliders.length > 0) {
                     slidesPerView: 1.1,
                     spaceBetween: 20,
                 },
-                769: {
+                468: {
+                    slidesPerView: 2
+                },
+                1100: {
                     slidesPerView: 3,
                     spaceBetween: 40,
                 }
@@ -248,40 +256,40 @@ if(window.innerWidth < 768) {
 
 //MenuMobile
 
-if(window.innerWidth <= 768) {
-    const nav = document.querySelector('.header-nav')
-    const links = document.querySelectorAll('.header-nav-link');
-    const mobNav = document.createElement('div');
+if(window.innerWidth <= 820) {
+    // const nav = document.querySelector('.header-nav')
+    // const links = document.querySelectorAll('.header-nav-link');
+    // const mobNav = document.createElement('div');
     const body = document.querySelector('html')
-    mobNav.classList.add('header-nav-mob');
-    nav.append(mobNav)
-    links.forEach(link => {
-        let copy = link.innerHTML;
-        mobNav.insertAdjacentHTML('beforeend', copy)
-        link.parentNode.removeChild(link)
-    })
+    // mobNav.classList.add('header-nav-mob');
+    // nav.append(mobNav)
+    // links.forEach(link => {
+    //     let copy = link.innerHTML;
+    //     mobNav.insertAdjacentHTML('beforeend', copy)
+    //     link.parentNode.removeChild(link)
+    // })
 
     const button = document.querySelector('.header-mob');
-    
+    const mobileMenu = document.querySelector('.header-nav-mobile > .header-nav-links')
 
     button.onclick = () => {
-        if(mobNav.classList.contains('active')) {
+        if(mobileMenu.classList.contains('active')) {
             
             button.classList.remove('active')
-            mobNav.classList.remove('active')
+            mobileMenu.classList.remove('active')
             body.style.overflow = 'auto'
         }else {
             button.classList.add('active')
-            mobNav.classList.add('active')
+            mobileMenu.classList.add('active')
             body.style.overflow = 'hidden'
         }
     }
 
-    const navLinks = [...mobNav.children]
+    const navLinks = [...mobileMenu.children]
     navLinks.forEach(link => {
         link.onclick = () => {
             button.classList.remove('active')
-            mobNav.classList.remove('active')
+            mobileMenu.classList.remove('active')
             body.style.overflow = 'auto'
         }
     })
